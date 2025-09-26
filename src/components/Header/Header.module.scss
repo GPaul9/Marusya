@@ -1,0 +1,60 @@
+@use '@/styles/mixins' as *;
+
+.header {
+  padding: 24px 0;
+
+  @include respond-to(md) {
+    padding: 12px 0 4px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+
+    @include respond-to(xxl) {
+      gap: 40px;
+    }
+
+    @include respond-to(sm) {
+      gap: 20px
+    }
+  }
+
+  &__logo {
+    margin: 0;
+    max-width: 143px;
+
+    @include respond-to(sm) {
+      max-width: 81px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+
+    @include respond-to(md) {
+      justify-content: flex-end;
+    }
+
+    @include respond-to(sm) {
+      gap: 20px;
+    }
+  }
+
+  &__nav {    display: flex;
+    align-items: center;
+    gap: 42px;
+  }
+
+  &__link {
+    @include button-selection;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}

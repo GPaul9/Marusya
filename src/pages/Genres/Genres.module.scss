@@ -1,0 +1,13 @@
+@use '@/styles/mixins' as *;
+
+.genres {
+  @include page-padding;
+
+  &__container {
+    @include page-stack;
+  }
+
+  &__title {
+    @include section-title;
+  }
+}

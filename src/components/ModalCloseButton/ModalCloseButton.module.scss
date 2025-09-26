@@ -1,0 +1,39 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(72px);
+    padding: 12px;
+    border-radius: 50%;
+    background-color: $color-bg-light;
+    transition: background-color 0.3s ease;
+
+    &:focus-visible,
+    &:hover {
+      background-color: rgba($color-bg-primary, 0.4);
+      outline: transparent;
+    }
+
+    &:active {
+      background-color: $color-bg-light;
+
+      > .btn__icon {
+        fill: $color-bg-primary;
+      }
+    }
+
+
+    @include respond-to(lg) {
+      padding: 6px;
+      transform: translate(-14px, 14px);
+    }
+
+    &__icon {
+      fill: $color-content-secondary;
+      width: 24px;
+      height: 24px;
+    }
+}

@@ -1,0 +1,23 @@
+@use '@/styles/mixins' as *;
+
+.home {
+  @include page-padding;
+  & {
+    padding-top: 32px;
+  }
+
+  @include respond-to(sm) {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include respond-to(md) {
+      gap: 56px;
+    }
+  }
+}

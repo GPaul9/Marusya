@@ -1,0 +1,126 @@
+@use '@/styles/mixins' as *;
+@use '@/styles/variables' as *;
+
+.movie {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @include respond-to(md) {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+
+  &__info-wrapper {
+    margin: 0;
+    margin-bottom: 48px;
+    max-width: 590px;
+    width: 100%;
+
+    @include respond-to(md) {
+      max-width: none;
+      margin-bottom: 0;
+    }
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    margin-bottom: 60px;
+
+    @include respond-to(lg) {
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: clamp(0.875rem, 0.5vw + 0.7rem, 1.125rem);
+    line-height: 1.33;
+    color: rgba($color-content-primary, 0.7);
+  }
+
+  &__title {
+    @include section-title;
+  }
+
+  &__description {
+    font-size: clamp(1.125rem, 0.5vw + 1rem, 1.5rem);
+    color: rgba($color-content-primary, 0.7);
+  }
+
+  &__btn-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+    gap: 16px;
+
+    @include respond-to(xl) {
+      display: flex;
+      max-width: 340px;
+
+      > :first-child {
+        flex: 1;
+      }
+    }
+
+    &_preview-layout {
+      @include respond-to(xl) {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+
+        > :first-child {
+          grid-column: 1 / -1;
+        }
+      }
+    }
+  }
+
+  &__btn-about {
+    @include button-secondary;
+
+    @include respond-to(xl) {
+      padding: 15px 39px;
+    }
+  }
+
+  &__btn {
+    @include button-secondary;
+    padding: 15px 21px;
+  }
+
+  &__btn-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__poster-wrapper {
+    width: 100%;
+  }
+
+  &__poster {
+    border-radius: 16px;
+    max-width: 680px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 680 / 552;
+    object-fit: cover;
+
+    @include respond-to(md) {
+      max-width: none;
+      aspect-ratio: 4/2;
+    }
+    @include respond-to(sm) {
+      aspect-ratio: 338 / 234;
+    }
+  }
+}
+
+.skeleton {
+  @include skeleton-flex;
+}

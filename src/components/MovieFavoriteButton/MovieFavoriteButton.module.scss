@@ -1,0 +1,17 @@
+@use '@/styles/mixins' as *;
+@use '@/styles/variables' as *;
+
+.btn {
+  @include button-secondary;
+  padding: 16px 22px;
+}
+
+.btn__icon {
+  width: 24px;
+  height: 24px;
+
+  &_active {
+    fill: $color-content-primary-hover;
+    stroke: $color-content-primary-hover;
+  }
+}

@@ -1,0 +1,85 @@
+@use '@/styles/mixins' as *;
+@use '@/styles/variables' as *;
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 64px;
+
+  @include respond-to(md) {
+    gap: 40px;
+  }
+  @include respond-to(sm) {
+    align-items: stretch;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 16px;
+  }
+
+
+  &__icon_mail {
+    background: url('../../assets/email-icon.svg') center center no-repeat;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 24px;
+    line-height: 1.33;
+    font-weight: 700;
+    background-color: rgba($color-bg-light, 0.5);
+    color: $color-content-primary;
+    flex-shrink: 0;
+
+    @include respond-to(md) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__descr {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__label {
+    font-size: 1.125rem;
+    line-height: 1.33;
+    color: $color-content-primary;
+
+    @include respond-to(md) {
+      font-size: 0.875rem;
+      line-height: 1.43;
+      color: rgba($color-content-primary, 0.5)
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    line-height: 1.33;
+    font-weight: 700;
+    color: $color-content-primary;
+
+    @include respond-to(md) {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__logout-btn {
+    @include button-primary;
+  }
+}

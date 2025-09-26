@@ -1,0 +1,35 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.top {
+  &__title {
+    @include section-subtitle;
+    margin: 0;
+    margin-bottom: 64px;
+
+    @include respond-to(md) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__list {
+    @include respond-to (md) {
+      margin: -50px -18px;
+      padding: 50px 18px;
+    }
+  }
+
+  &__count {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-12px, -12px);
+    padding: 8px 24px;
+    border-radius: 50px;
+    background-color: $color-bg-light;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.33;
+    color: $color-content-accent;
+  }
+}

@@ -1,0 +1,10 @@
+@use '@/styles/mixins' as *;
+
+.auth-btn {
+  @include button-selection;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}

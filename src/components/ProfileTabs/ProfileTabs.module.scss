@@ -1,0 +1,29 @@
+@use '@/styles/mixins' as *;
+@use '@/styles/variables' as *;
+
+.tabs {
+  display: flex;
+  gap: 64px;
+
+  @include respond-to(md) {
+    gap: 24px;
+  }
+
+    &__item {
+      @include button-selection;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+
+      &:focus-visible svg,
+      &:hover svg {
+        fill: $color-content-primary-hover
+      }
+    }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+}

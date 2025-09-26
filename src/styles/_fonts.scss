@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Play";
+  src: local("Play-Regular"),
+    url(../assets/fonts/PlayRegular.woff),
+    url(../assets/fonts/PlayRegular.woff2);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Play";
+  src: local("Play-Bold"),
+    url(../assets/fonts/PlayBold.woff),
+    url(../assets/fonts/PlayBold.woff2);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

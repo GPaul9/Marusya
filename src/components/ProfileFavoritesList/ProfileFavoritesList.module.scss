@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.favorites {
+  &__list {
+    @include respond-to (md) {
+      margin: -50px -18px;
+      padding: 50px 18px;
+    }
+  }
+
+  &__card:hover .favorites__btn-remove {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__btn-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(20px, -20px);
+    padding: 8px;
+    border-radius: 50%;
+    background-color: $color-bg-light;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: fill 0.3s ease-in,
+    background-color 0.3s ease,
+    opacity 0.2s ease;
+
+    @include respond-to(lg) {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &:focus-visible,
+    &:hover {
+      fill: $color-bg-light;
+      background-color: $color-content-accent;
+      outline: transparent;
+    }
+  }
+
+  &__btn-icon {
+    fill: inherit;
+    width: 24px;
+    height: 24px;
+  }
+}

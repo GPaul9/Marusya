@@ -1,0 +1,61 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.search {
+  position: relative;
+  padding: 12px 16px;
+  width: 100%;
+  max-width: 658px;
+  font-size: 1.125rem;
+  color: $color-content-primary;
+  background-color: $color-bg-secondary;
+  border-radius: 8px;
+
+  @include respond-to(lg) {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  @include respond-to(md) {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &__field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin: 0;
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    fill-opacity: 0.5;
+  }
+
+  &__input {
+    flex: 1;
+    padding: 0;
+    border: none;
+    color: inherit;
+    background: none;
+    outline: transparent;
+    height: 16px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.mobile-icon {
+  width: 24px;
+  height: 24px;
+}

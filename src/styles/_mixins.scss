@@ -1,0 +1,192 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+@use "sass:map";
+
+@mixin button-primary {
+  position: relative;
+  padding: 15px 47px;
+  border: 1px solid $color-bg-primary;
+  border-radius: 28px;
+
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.33;
+
+  color: $color-content-primary;
+  background-color: $color-bg-primary;
+  transition: background-color 0.2s linear;
+
+  &:focus-visible {
+    background-color: rgba($color-bg-primary, 0.7);
+    outline: transparent;
+  }
+  &:hover {
+    background-color: rgba($color-bg-primary, 0.5);
+  }
+  &:active {
+    top: 2px;
+  }
+
+  &:disabled {
+    background-color: $color-bg-pimary-disabled;
+    color: rgba($color-content-primary, 0.5);
+  }
+}
+
+@mixin button-secondary {
+  position: relative;
+  padding: 15px 47px;
+  border: 1px solid $color-bg-secondary;
+  border-radius: 28px;
+
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.33;
+
+  color: $color-content-primary;
+  background-color: $color-bg-secondary;
+  transition: background-color 0.2s linear;
+
+  &:focus-visible {
+    background-color: rgba($color-bg-secondary, 0.7);
+    outline: transparent;
+  }
+  &:hover {
+    background-color: rgba($color-bg-secondary, 0.5);
+  }
+  &:active {
+    top: 2px;
+  }
+
+  &:disabled {
+    background-color: $color-bg-secondary-disabled;
+    color: rgba($color-content-primary, 0.4);
+  }
+}
+
+@mixin button-selection {
+  position: relative;
+  padding: 8px 0;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  color: $color-content-primary;
+
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: $color-content-primary-active;
+    pointer-events: none;
+    transition: width 0.3s ease;
+  }
+
+  &:focus-visible,
+  &:hover {
+    color: $color-content-primary-hover;
+    outline: transparent;
+  }
+
+  &_active::after {
+    width: 100%;
+  }
+}
+
+@mixin page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  @include respond-to(sm) {
+    gap: 40px;
+  }
+}
+
+@mixin page-padding {
+  padding: $section-padding-lg;
+
+  @include respond-to(sm) {
+    padding: $section-padding-sm;
+  }
+}
+
+@mixin section-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+  font-weight: 700;
+  line-height: clamp(2rem, 2vw + 1rem, 3.5rem);
+  color: $color-section-title;
+}
+
+@mixin section-subtitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  font-weight: 700;
+  line-height: clamp(2rem, 2vw + 1rem, 3rem);
+  color: $color-section-title;
+}
+
+@mixin card-link-style {
+  display: block;
+  border: 1px solid rgba($color-movie-card-stroke, 0.25);
+  border-radius: 16px;
+
+  width: 100%;
+  height: 100%;
+
+  box-shadow: 0 0 80px 0 rgba($color-movie-card-stroke, 0.33);
+  background-color: rgba($color-movie-card-stroke, 0.25);
+
+  &:focus-visible {
+    border-color: $color-content-accent;
+    outline: transparent;
+  }
+  &:hover {
+    border-color: $color-movie-card-stroke;
+    outline: transparent;
+  }
+
+  @include respond-to(md) {
+    box-shadow: 0 0 40px 0 rgba($color-movie-card-stroke, 0.33);
+  }
+}
+
+@mixin skeleton-flex($width: 100%) {
+  flex: 1;
+  min-width: 0;
+  max-width: $width;
+}
+
+@mixin loader($size, $border-width: 5px) {
+  width: $size;
+  height: $size;
+  border: $border-width solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  }
+}
+
+@mixin respond-to($name) {
+  $value: map.get($breakpoints, $name);
+
+  @if $value {
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Нет брейкпоинта с именем #{$name}";
+  }
+}

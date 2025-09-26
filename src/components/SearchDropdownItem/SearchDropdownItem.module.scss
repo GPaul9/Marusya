@@ -1,0 +1,66 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 19px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  @include respond-to(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  &:focus-visible,
+  &:hover {
+    border-color: rgba($color-content-primary, 0.5);
+    outline: transparent;
+  }
+
+  &__poster {
+    margin: 0;
+    max-width: 40px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 40 / 52;
+    object-fit: cover;
+
+    @include respond-to(md) {
+      max-width: 158px;
+      width: 158px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba($color-content-primary, 0.7);
+  }
+
+  &__rating {
+    font-size: 0.75rem;
+    padding: 0 8px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $color-content-primary;
+  }
+}

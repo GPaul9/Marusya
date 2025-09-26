@@ -1,0 +1,1 @@
+export { SearchBoxView } from './SearchBoxView'

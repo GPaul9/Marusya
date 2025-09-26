@@ -1,0 +1,52 @@
+@use '@/styles/variables' as *;
+
+.rating {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 4px;
+  border-radius: 16px;
+  width: max-content;
+  font-weight: 700;
+  color: $color-rating-content;
+
+  &_small {
+    font-size: 0.75rem;
+    padding: 0 8px;
+  }
+
+  &_large {
+    font-size: 1.125rem;
+    padding: 4px 12px;
+  }
+
+  &_excellent {
+    background-color: $color-rating-excellent;
+  }
+
+  &_good {
+    background-color: $color-rating-good;
+  }
+
+  &_poor {
+    background-color: $color-rating-poor;
+  }
+
+  &_bullshit {
+    background-color: $color-rating-bullshit;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    &_small {
+      width: 10px;
+      height: 10px;
+    }
+
+    &_large {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
